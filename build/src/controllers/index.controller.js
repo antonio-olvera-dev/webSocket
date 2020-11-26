@@ -10,7 +10,7 @@ class IndexConrtoller {
     async index(req, res) {
         try {
             // res.send('d');
-            res.sendFile(path_1.default.resolve('./src/views/layouts/main.html'));
+            res.sendFile(path_1.default.resolve('./views/layouts/main.html'));
         }
         catch (error) {
             console.log(error);

@@ -3,10 +3,10 @@ import  {indexRoutes}  from "./routes/index.routes";
 import socketio from "socket.io"
 
 const app = express();
-app.set('port', 3300);
+app.set('port', 3025);
 
 app.use(express.json());
-app.use('/chat', indexRoutes.router);
+app.use('/', indexRoutes.router);
 
 const server = app.listen(app.get('port'), () => {
 

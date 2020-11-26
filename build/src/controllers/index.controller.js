@@ -10,6 +10,7 @@ class IndexConrtoller {
     async index(req, res) {
         try {
             // res.send('d');
+            //poner src para que funcione
             res.sendFile(path_1.default.resolve('./views/layouts/main.html'));
         }
         catch (error) {

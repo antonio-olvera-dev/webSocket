@@ -13,7 +13,14 @@ app.use('/', index_routes_1.indexRoutes.router);
 const server = app.listen(app.get('port'), () => {
     console.log(`servidor levantado en http://localhost:${app.get('port')}`);
 });
-let io = new socket_io_1.default.Server(server);
+let io = new socket_io_1.default.Server(server, {
+    cors: {
+        origin: "http://mybookmark.ddns.net",
+        methods: ["GET", "POST"],
+        allowedHeaders: ["my-custom-header"],
+        credentials: true
+    }
+});
 io.on("connection", (socket) => {
     console.log('User created');
     socket.on('message', (msg) => {

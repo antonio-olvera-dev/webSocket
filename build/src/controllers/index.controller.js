@@ -11,7 +11,7 @@ class IndexConrtoller {
         try {
             // res.send('d');
             //poner src para que funcione
-            res.sendFile(path_1.default.resolve('./views/layouts/main.html'));
+            res.sendFile(path_1.default.resolve('./src/views/layouts/main.html'));
         }
         catch (error) {
             console.log(error);

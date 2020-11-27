@@ -54,21 +54,18 @@
         }
 
 
-ul{
-    display: flex;
+        ul {
+            display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
             width: 50%;
-margin-top: 3em;
-margin-left: 3em;
-overflow: auto;
-}
-li{
+            margin-top: 3em;
+            margin-left: 3em;
+            overflow: auto;
+        }
 
-
-}
-
+        li {}
     </style>
 </head>
 
@@ -90,7 +87,7 @@ li{
 
 
             <ul>
-              
+
             </ul>
 
 
@@ -146,13 +143,21 @@ li{
     <script>
 
 
-        let socket = io('http://3.139.253.162:3025');
+        let socket = io('http://mybookmark.ddns.net:3025',
+            {
+                withCredentials: true,
+                extraHeaders: {
+                    "my-custom-header": "abcd"
+                }
+            }
+        );
+
 
         function emit(text) {
             socket.emit('message', text);
         }
 
-        document.getElementById('bt').addEventListener('click', ()=>{
+        document.getElementById('bt').addEventListener('click', () => {
 
             const text = document.getElementById('et').value;
             emit(text);
@@ -164,10 +169,10 @@ li{
 
 
         socket.on('message', (message) => {
-            
+
             var ul = document.getElementsByTagName('ul')[0];
             ul.innerHTML += (`<li>${message}</li>`)
-           
+
         });
 
 

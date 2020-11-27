@@ -16,7 +16,14 @@ const server = app.listen(app.get('port'), () => {
 
 
 
-let io = new socketio.Server(server);
+let io = new socketio.Server(server,{
+    cors: {
+        origin: "http://mybookmark.ddns.net",
+        methods: ["GET", "POST"],
+        allowedHeaders: ["my-custom-header"],
+        credentials: true
+      }
+  });
 
 io.on("connection", (socket: any) => {
 
